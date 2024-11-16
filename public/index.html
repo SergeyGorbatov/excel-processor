@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #fileInput {
+            margin-bottom: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #loader-custom {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .loader-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .loader-progress {
+            width: 0%;
+            height: 20px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            transition: width 0.3s;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<h1>Excel Processor</h1>
+<div id="apiKeyForm">
+    <label for="apiKeyInput">Введите API-ключ:</label>
+    <input type="text" id="apiKeyInput" placeholder="Введите API-ключ">
+    <button id="saveApiKeyButton">Сохранить</button>
+</div>
+<div id="errorMessage" style="color: red; display: none;"></div>
+<input type="file" id="fileInput" accept=".xlsx, .xls">
+<button id="uploadButton" disabled>Выгрузить</button>
+<div id="loader-custom">
+    Загрузка...
+    <div class="loader-bar">
+        <div class="loader-progress" id="loaderProgress">0%</div>
+    </div>
+</div>
+<div id="output"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="index.js"></script> <!-- Подключаем новый index.js -->
+</body>
+</html>
